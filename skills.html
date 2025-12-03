@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#010127">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>My Portfolio - Gunalakshmanan</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <style>
+
+      
+      .it{
+        
+    background: linear-gradient(45deg, #ff00d4, #00d0ff);
+   text-align: center;
+   font-weight: bold;
+      }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0e1a25;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           HEADER & NAVBAR STYLES
+           ======================================== */
+
+        .navbar {
+            width: 100%;
+            background-color: #010127;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .container-fluid {
+            max-width: 100%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .navbar-brand {
+            font-size: 2.5rem;
+            color: rgb(247, 0, 255) !important;
+            font-weight: bolder;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left: 10px;
+            margin-bottom: 0;
+            white-space: nowrap;
+        }
+
+        nav a {
+            color: #fff;
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #4bf9ac;
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            color: #4bf9ac;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(75, 249, 172, 0.3);
+            border-radius: 4px;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%234bf9ac' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            width: 24px;
+            height: 24px;
+        }
+
+        .navbar-collapse {
+            position: static;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav-item {
+            list-style: none;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: bold;
+            padding: 8px 15px !important;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-link:hover {
+            color: #4bf9ac !important;
+        }
+
+        .nav-link.active {
+            color: rgb(247, 0, 255) !important;
+        }
+
+        .sticky-top {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: #010127;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ========================================
+           FOOTER STYLES
+           ======================================== */
+
+        footer {
+            color: yellow;
+            background-color: #010127;
+            font-size: clamp(0.75rem, 2vw, 1rem);
+            padding: 20px 15px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(75, 249, 172, 0.2);
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .list-inline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .list-inline-item {
+            list-style: none;
+            margin: 0;
+        }
+
+        .list-inline-item a {
+            color: yellow;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+        }
+
+        .list-inline-item a:hover {
+            color: #4bf9ac;
+        }
+
+        footer img {
+            max-width: 40px;
+            height: auto;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN - TABLET (768px)
+           ======================================== */
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.75rem;
+            }
+
+            nav a {
+                margin-right: 10px;
+                font-size: 0.9rem;
+            }
+
+            .nav-link {
+                padding: 8px 10px !important;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN - MOBILE (576px)
+           ======================================== */
+
+        @media (max-width: 576px) {
+            html {
+                font-size: 14px;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+                margin-left: 5px;
+            }
+
+            nav a {
+                margin-right: 8px;
+                font-size: 0.8rem;
+            }
+
+             .navbar-collapse {
+                position: fixed;
+                top: 60px;
+                right: 0;
+                width: 40%;
+                max-width: 280px;
+                font-weight: bold;
+                border-radius: 0;
+                background-color: #010127b0;
+                border-radius: 30px;
+                box-shadow: -2px 2px 8px rgba(252, 252, 252, 0.938);
+                padding: 15px;
+                text-align: center;
+            }
+
+
+            .navbar-collapse.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-link {
+                padding: 8px 0 !important;
+                font-size: 0.95rem;
+                display: block;
+            }
+
+            footer {
+                padding: 15px 10px;
+            }
+
+            footer .row {
+                text-align: center;
+            }
+
+            .list-inline {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .list-inline-item {
+                width: 100%;
+            }
+
+            footer img {
+                margin-left: 0 !important;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN - SMALL MOBILE (360px)
+           ======================================== */
+
+        @media (max-width: 360px) {
+            .navbar-brand {
+                font-size: 1.25rem;
+                margin-left: 5px;
+            }
+
+            nav a {
+                margin-right: 5px;
+                font-size: 0.75rem;
+            }
+
+            .nav-link {
+                padding: 6px 8px !important;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ========================================
+           COMMON UTILITIES
+           ======================================== */
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        body, html {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================
+         HEADER & NAVIGATION
+         ======================================== -->
+    
+    <header class="sticky-top">
+        <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: #010127;">
+            <div class="container-fluid" style="background-color: black;">
+                
+                <!-- Brand Name -->
+                <a class="navbar-brand me-auto" href="#" style="font-size: 2.5rem; color: rgb(247, 0, 255); font-weight: bolder; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; margin-left: 10px;">
+                    Portfolio
+                </a>
+
+                <!-- Hamburger Menu Button -->
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navMenu"
+                        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="home.html" >Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pcards.html">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="resume.html" >Resume</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html" >Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active"  >Skills</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========================================
+         MAIN CONTENT AREA (Empty - Add Your Content Here)
+         ======================================== -->
+         <h1 class="it"> Technical Skills With Me</h1>
+    
+    <main style="background-color: #0e1a25;  " class="mb-5">
+        <!-- Your page content goes here -->
+         <div class="container">
+  <h1> Programming &nbsp; Languages : </h1>
+  <br>
+  <div class="row g-4">
+
+    <!-- python -->
+    <div class="col-6 col-sm-3 col-md-3 col-lg-2  d-flex justify-content-center">
+
+        <div class="icon-card">
+          <img src="data:image/png;base64,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" alt="LinkedIn">
+          <div class="card-label">PYTHON</div>
+
+        </div>
+      </a>
+    </div>
+
+  
+
+
+    <!-- c# -->
+    <div class="col-6 col-sm-3 col-md-3 col-lg-2  d-flex justify-content-center">
+        <div class="icon-card">
+          <img src="skills/c1.jpg" alt="GitHub" style="border-radius: 15px;">
+          <div class="card-label">C#</div>
+        </div>
+      </a>
+    </div>
+
+    
+    <!-- sql -->
+    <div class="col-6 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center">
+        <div class="icon-card">
+          <img src="skills/sql.png" alt="Phone">
+          <div class="card-label">SQL</div>
+        </div>
+      </a>
+    </div>
+
+
+
+        <!-- HTML -->
+        <div class="col-6 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center">
+
+            <div class="icon-card">
+              <img src="skills/html.png" alt="LinkedIn">
+              <div class="card-label">HTML</div>
+    
+            </div>
+          </a>
+        </div>
+    
+        <!-- CSS -->
+      <div class="col-6 col-sm-3 col-md-3 col-lg-2  d-flex justify-content-center">
+        <div class="icon-card">
+          <img src="skills/css.png" style="height: 150px;width: 150px;" alt="Gmail">
+          <div class="card-label">CSS</div>
+        </div>
+      </a>
+    </div>
+    
+    
+        <!-- JAVA SCRIPT -->
+        <div class="col-6 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center">
+            <div class="icon-card">
+              <img src="skills/js.jpg" alt="GitHub" style="height: 140px;width: 140px;">
+              <div class="card-label">JAVA SCRIPT</div>
+            </div>
+          </a>
+        </div>
+    
+       
+    
+
+  </div>
+</div>
+
+<style>
+    .icon-card {
+      width: 150px;
+      height: 200px;
+      aspect-ratio: 1 / 1.2;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+    }
+
+    .icon-card:hover {
+      transform: scale(1.05);
+    }
+
+    .icon-card img {
+      width: 50%;
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .icon-card:hover img {
+      transform: scale(2.0);
+    }
+
+    .card-label {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .card-url {
+      margin-top: 5px;
+      font-weight: bold;
+      color: #444;
+      font-size: 0.99rem;
+      word-break: break-word;
+      transition: color 0.3s ease;
+      padding-top: 15px;
+    }
+
+    .icon-card:hover .card-url {
+      color: rgb(0, 4, 255);
+    }
+
+    .link-wrap {
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+
+
+
+</style>
+        
+    </main>
+
+
+    <!-- technical fronten frameworks-->
+    <main style="background-color: #0e1a25;  " class="mb-5">
+        <!-- Your page content goes here -->
+         <div class="container" >
+  <h1> Frontend   &nbsp;  Framework  :</h1>
+  <br>
+  <div class="row g-4">
+
+
+
+
+     <!-- BOOTSTRAP -->
+        <div class="col-6 col-sm-3 col-md-3 col-lg-2 mb-3 d-flex justify-content-center">
+            <div class="icon-card">
+              <img src="skills/bootstrap.jpg" alt="Website">
+              <div class="card-label">BOOTSTRAP</div>
+            </div>
+          </a>
+        </div>
+
+          <!-- React-->
+          <div class="col-6 col-sm-3 col-md-3 col-lg-2 mb-3 d-flex justify-content-center">
+            <div class="icon-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWeSTo7d3n1GZqXkZz47k1aDOAAAnk8G6rZw&s" alt="GitHub" style="border-radius: 15px;">
+              <div class="card-label">REACT js</div>
+            </div>
+          </a>
+        </div>
+
+   <!-- ,NET -->
+      <div class="col-6 col-sm-3 col-md-3 col-lg-2 mb-3 d-flex justify-content-center">
+      <div class="icon-card">
+        <img src="skills/visua studio.jpg" alt="Resume" style="">
+        <div class="card-label">.NET</div>
+      </div>
+    </a>
+       </div>
+
+
+    
+
+  </div>
+</div>
+
+
+        
+    </main>
+
+
+<!-- technical backend frameworks-->
+    <main style="background-color: #0e1a25;  "class="mb-5">
+        <!-- Your page content goes here -->
+         <div class="container" >
+  <h1> Backend   &nbsp;  Framework  :</h1>
+  <br>
+  <div class="row g-4">
+
+
+
+<!-- ,django -->
+      <div class="col-6 col-sm-3 col-md-3 col-lg-2 mb-3 d-flex justify-content-center">
+      <div class="icon-card">
+        <img src="https://w7.pngwing.com/pngs/10/113/png-transparent-django-web-development-web-framework-python-software-framework-django-text-trademark-logo-thumbnail.png" alt="Resume" style="">
+        <div class="card-label">Django</div>
+      </div>
+    </a>
+      </div>
+   
+    
+
+   <!-- ,NET -->
+      <div class="col-6 col-sm-3 col-md-3 col-lg-2 mb-3 d-flex justify-content-center">
+      <div class="icon-card">
+        <img src="skills/visua studio.jpg" alt="Resume" style="">
+        <div class="card-label">.NET</div>
+      </div>
+    </a>
+      </div>
+    
+    <!-- flash -->
+      <div class="col-6 col-sm-3 col-md-3 col-lg-2 mb-3 d-flex justify-content-center">
+      <div class="icon-card">
+        <img src="https://img.icons8.com/color/1200/flask.jpg" alt="Resume" style="">
+        <div class="card-label">flash</div>
+      </div>
+    </a>
+      </div>
+
+  </div>
+</div>
+
+
+        
+    </main>
+
+    <!--tools  & version contols-->
+    <main style="background-color: #0e1a25;  "class="mb-5">
+        <!-- Your page content goes here -->
+         <div class="container" >
+  <h1> Tools  & Version   &nbsp;  Controls :</h1>
+  <br>
+  <div class="row g-4">
+
+
+
+<!-- git -->
+      <div class="col-6 col-sm-3 col-md-3 col-lg-2 mb-3 d-flex justify-content-center">
+      <div class="icon-card">
+        <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="Resume" style="">
+        <div class="card-label">Git</div>
+      </div>
+    </a>
+      </div>
+   
+    
+
+   <!-- git hub -->
+      <div class="col-6 col-sm-3 col-md-3 col-lg-2 mb-3 d-flex justify-content-center">
+      <div class="icon-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF1HctiRAMzzzwozHLo0YxPfZF1vQrjvcWeg&s" alt="Resume" style="">
+        <div class="card-label">Git Hub</div>
+      </div>
+    </a>
+      </div>
+    
+    <!-- vs code -->
+      <div class="col-6 col-sm-3 col-md-3 col-lg-2 mb-3 d-flex justify-content-center">
+      <div class="icon-card">
+        <img src="https://w7.pngwing.com/pngs/512/824/png-transparent-visual-studio-code-hd-logo-thumbnail.png" alt="Resume" style="">
+        <div class="card-label">VS Code</div>
+      </div>
+    </a>
+      </div>
+
+      <!-- Android studio -->
+      <div class="col-6 col-sm-3 col-md-3 col-lg-2 mb-3 d-flex justify-content-center">
+      <div class="icon-card">
+        <img src="skills/android.png" alt="Resume" style="">
+        <div class="card-label">Android</div>
+      </div>
+    </a>
+      </div>
+
+      <!-- >net -->
+      <div class="col-6 col-sm-3 col-md-3 col-lg-2 mb-3 d-flex justify-content-center">
+      <div class="icon-card">
+        <img src="skills/visua studio.jpg" alt="Resume" style="">
+        <div class="card-label">.NET</div>
+      </div>
+    </a>
+      </div>
+
+  </div>
+</div>
+
+
+        
+    </main>
+
+
+    <style>
+      main h1{
+        color: rgb(0, 255, 213);
+      }
+    </style>
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    
+   <!-- Footer -->
+    <footer class="footer">
+  <div class="footer-container">
+    <h3 class="footer-title">Connect With Me</h3>
+
+    <div class="social-icons">
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/gunalakshmanan-m-538458355" target="_blank" class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/GUNA4287" target="_blank" class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
+      </a>
+
+     
+
+      <!-- Mail -->
+      <a href="https://mail.google.com/mail/?view=cm&to=gunalakshmanangk@gmail.com" target="_blank" class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Mail">
+      </a>
+
+    </div>
+
+    <p class="copy">© 2025 Gunalakshmanan M — All Rights Reserved</p>
+  </div>
+    </footer>
+    <!-- footer css styles -->
+     <style>
+        .footer {
+  background: linear-gradient(135deg, #111827, #1f2937);
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.icon img {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: white;
+  padding: 6px;
+  transition: 0.3s;
+}
+
+.icon img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.copy {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+     </style>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#010127">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>My Portfolio - Gunalakshmanan</title>
+    
+    <!-- Bootstrap CSS -->
+
+      <link href="css/p_style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0e1a25;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           HEADER & NAVBAR STYLES
+           ======================================== */
+
+        .navbar {
+            width: 100%;
+            background-color: #010127;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .container-fluid {
+            max-width: 100%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .navbar-brand {
+            font-size: 2.5rem;
+            color: rgb(247, 0, 255) !important;
+            font-weight: bolder;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left: 10px;
+            margin-bottom: 0;
+            white-space: nowrap;
+        }
+
+        nav a {
+            color: #fff;
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #4bf9ac;
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            color: #4bf9ac;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(75, 249, 172, 0.3);
+            border-radius: 4px;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%234bf9ac' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            width: 24px;
+            height: 24px;
+        }
+
+        .navbar-collapse {
+            position: static;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav-item {
+            list-style: none;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: bold;
+            padding: 8px 15px !important;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-link:hover {
+            color: #4bf9ac !important;
+        }
+
+        .nav-link.active {
+            color: rgb(247, 0, 255) !important;
+        }
+
+        .sticky-top {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: #010127;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ========================================
+           FOOTER STYLES
+           ======================================== */
+
+        footer {
+            color: yellow;
+            background-color: #010127;
+            font-size: clamp(0.75rem, 2vw, 1rem);
+            padding: 20px 15px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(75, 249, 172, 0.2);
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .list-inline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .list-inline-item {
+            list-style: none;
+            margin: 0;
+        }
+
+        .list-inline-item a {
+            color: yellow;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+        }
+
+        .list-inline-item a:hover {
+            color: #4bf9ac;
+        }
+
+        footer img {
+            max-width: 40px;
+            height: auto;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN - TABLET (768px)
+           ======================================== */
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.75rem;
+            }
+
+            nav a {
+                margin-right: 10px;
+                font-size: 0.9rem;
+            }
+
+            .nav-link {
+                padding: 8px 10px !important;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN - MOBILE (576px)
+           ======================================== */
+
+        @media (max-width: 576px) {
+            html {
+                font-size: 14px;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+                margin-left: 5px;
+            }
+
+            nav a {
+                margin-right: 8px;
+                font-size: 0.8rem;
+            }
+
+             .navbar-collapse {
+                position: fixed;
+                top: 60px;
+                right: 0;
+                width: 40%;
+                max-width: 280px;
+                font-weight: bold;
+                border-radius: 0;
+                background-color: #010127b0;
+                border-radius: 30px;
+                box-shadow: -2px 2px 8px rgba(252, 252, 252, 0.938);
+                padding: 15px;
+                text-align: center;
+            }
+
+
+            .navbar-collapse.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-link {
+                padding: 8px 0 !important;
+                font-size: 0.95rem;
+                display: block;
+            }
+
+            footer {
+                padding: 15px 10px;
+            }
+
+            footer .row {
+                text-align: center;
+            }
+
+            .list-inline {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .list-inline-item {
+                width: 100%;
+            }
+
+            footer img {
+                margin-left: 0 !important;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN - SMALL MOBILE (360px)
+           ======================================== */
+
+        @media (max-width: 360px) {
+            .navbar-brand {
+                font-size: 1.25rem;
+                margin-left: 5px;
+            }
+
+            nav a {
+                margin-right: 5px;
+                font-size: 0.75rem;
+            }
+
+            .nav-link {
+                padding: 6px 8px !important;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ========================================
+           COMMON UTILITIES
+           ======================================== */
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+           
+        }
+
+        body, html {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================
+         HEADER & NAVIGATION
+         ======================================== -->
+    
+    <header class="sticky-top">
+        <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: #010127;">
+            <div class="container-fluid" style="background-color: black;">
+                
+                <!-- Brand Name -->
+                <a class="navbar-brand me-auto" href="#" style="font-size: 2.5rem; color: rgb(247, 0, 255); font-weight: bolder; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; margin-left: 10px;">
+                    Portfolio
+                </a>
+
+                <!-- Hamburger Menu Button -->
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navMenu"
+                        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="home.html" >Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" >Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="resume.html" >Resume</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html" >Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="skills.html" >Skills</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========================================
+         MAIN CONTENT AREA (Empty - Add Your Content Here)
+         ======================================== -->
+
+
+
+  <!--         mani projects -->
+    <main style="background-color: #0e1a25; min-height: calc(100vh - 200px); padding: 40px 20px;">
+        <!-- Your page content goes here -->
+         <p style=" text-align: center; color: rgb(255, 3, 234); font-weight: bold;font-size: 50px;">My Main Projcts </p>
+        <div class="container my-4">
+    <div class="row justify-content-center">
+        <!-- project 1 -->
+        <div class="col-12 col-sm-6 col-md-4 mb-5 col-lg-3">
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+
+                    <!-- FRONT SIDE -->
+                    <div class="flip-card-front">
+                        <img src="https://mir-s3-cdn-cf.behance.net/projects/404/cb1b01118844555.Y3JvcCwxNTM3LDEyMDIsMCw0MjY.jpg" class="img-fluid" alt="Project Image">
+                        <h4 class="mt-2">Chat - Me <br> <span style="color:  white;">* Mobile *</span></h4>
+                    </div>
+
+                    <!-- BACK SIDE -->
+                    <div class="flip-card-back">
+                        <h5>Tech Used</h5>
+                        <p><strong>Frontend:</strong> xml</p>
+                        <p><strong>Backend:</strong> C#</p>
+                        <p><strong>API:</strong> SERP API</p>
+                        <p><strong>Tools:</strong> MicroSoft Visual Studio , Git</p>
+                        <a href="p1.html" class="btn btn-primary mt-2">View Project</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+       
+        <!-- project 4 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+
+                    <!-- FRONT SIDE -->
+                    <div class="flip-card-front">
+                        <img src="data/p4.PNG" class="img-fluid" alt="Project Image">
+                        <h4 class="mt-2">Employee Attendance Monitoring<br> <span style="color:  white;"> * Desktop *</span></h4>
+                    </div>
+
+                    <!-- BACK SIDE -->
+                    <div class="flip-card-back">
+                        <h5>Tech Used</h5>
+                        <p><strong>Frontend:</strong> windowsform,Asp</p>
+                        <p><strong>Backend:</strong>C#</p>
+                        <p><strong>Tools:</strong> MicroSoft Visual Studio, Git</p>
+                        <a href="p4.html" class="btn btn-primary mt-2">View Project</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- project 5 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+
+                    <!-- FRONT SIDE -->
+                    <div class="flip-card-front">
+                        <img src="https://www.eklavvya.com/wp-content/uploads/2022/09/Successful-Online-Examination-Management-for-Entrance-Exam.webp" class="img-fluid" alt="Project Image">
+                        <h4 class="mt-2">Exam Cell Seating Arrangement System<br> <span style="color:  white;"> * Desktop*</span></h4>
+                    </div>
+
+                    <!-- BACK SIDE -->
+                    <div class="flip-card-back">
+                        <h5>Tech Used</h5>
+                        <p><strong>Frontend:</strong> windowsform,Asp</p>
+                        <p><strong>Backend:</strong>C#</p>
+                        <p><strong>Tools:</strong> MicroSoft Visual Studio, Git</p>
+                        <a href="p5.html" class="btn btn-primary mt-2">View Project</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+      
+        
+    </div>
+</div>
+
+ 
+    </main>
+
+            <!--        small projects  -->
+
+    <main style="background-color: #0e1a25; min-height: calc(100vh - 200px); padding: 40px 20px;">
+        <!-- Your page content goes here -->
+         <p style=" text-align: center; color: rgb(3, 255, 213); font-weight: bold;font-size: 50px;">My Basic Projcts </p>
+        <div class="container my-4">
+    <div class="row justify-content-center">
+       
+          <!-- project 2 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+
+                    <!-- FRONT SIDE -->
+                    <div class="flip-card-front">
+                        <img src="data:image/png;base64,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" class="img-fluid" alt="Project Image">
+                        <h4 class="mt-2">To - Do - List <br> <span style="color:  white;"> * Mobile *</span></h4>
+                    </div>
+
+                    <!-- BACK SIDE -->
+                    <div class="flip-card-back">
+                        <h5>Tech Used</h5>
+                        <p><strong>Frontend:</strong> XML</p>
+                        <p><strong>Backend:</strong> C#</p>
+                        <p><strong>Tools:</strong> MicroSoft Visual Studio , Git</p>
+                        <a href="p2.html" class="btn btn-primary mt-2">View Project</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- project 3-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+
+                    <!-- FRONT SIDE -->
+                    <div class="flip-card-front">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABEVBMVEX///9CS1iZ0GCDj5/pWFg9ifZolTQ/SFU3QU/U1ddET1h9iZnz9PRLUl6FkaFnbXWRxlk+Q1hzmVxde01zoj+NkJavsbRibHpncX9QWmg+S1jcV1hCSlRXYW/iWFhAR1huTVh5oVyMUFiNvl97T1hAa69AZJydUVhBWH5BXYg+hOmSnKoyhPbz+P+4zvtmoPiCsPmcv/ri5Of97+/75ORxfIvqZGTuiIhSTFj3x8epsbyKvlOQm6nvkpLAxs3scHDxpaXIzdSmrrqAsUnJVVi9VFitU1j40dH0sbHtfHxuS1bxm5v1wMBgTVhimPe6vL5+gohSaFJbfEZnkDxge1psjltCUms+ftw/c8LI3PyfoaYErMymAAAIq0lEQVR4nO2d/3/SOBjHi0UZ11J33hxjAnp36s1x32wLla4UCirjnM6789Tz//9DLkkppCWB6tEkjfn8MLbX8hp98yTP0zwfMjRNSUlJSUlJSUlJSUlJSUlJSWqZ7MUUzz5uNVircm3brADrnw5qXNSoM2E0Px0cVPiodtBhgHj9lhcf1MHtwhGPazwBGSBeV2pcAQFiwRP1Lt8IxohF1o1j/oAg39SLAzQFCCEgbBQXxGsRAIGiwghDMQhrnaIA7be8E2ms4gjrYoRQEe6TsP0NK6UJW0UV/Q3CP79jpHeZJz5mRNj+6xYj/d1WhMUQVv46YiRehPfvHDLSj99wIvz+BiMpwlIRgjkpNeHFDGWWWYZSGsLDo6Q8HF1ISXhxhJXAmYSEh0epKo9HURLCWTw/Z7OY9Ahbi3IQxiFEXLPsPJWD8AJhxYE7ygRRDsIZFrcLGQnjSXpB+EEaQmySLqfpeiFKSDiTkDC99L4WwlWqkZZw9UtFWApC+TPNV1AtUkVexoqfCtvhLRkJZ1iqmaXSjiyEh+st02FmGUpCGE9TUOYP424G3qqRhPAi7VXgjRpJCJdb+6TbhjcUZSHEEVOA8hCu+onZlrA8hDdAmgHaaOxLREhRlvCT7IS1u4pQEeYkrL27w0j/tPkQVu5/y0j3K5wIeUkRKkJFyF+KUBEqQv5ShIpQEaaei6x8w7KjTiniSdhqEtVppIc1yMNaGcDXP/xE0MNnG4jsCDt9QyfJ6LdyDDP6zdRfe/j8Xpegey8eZBGZEbb6lkUktPQ+HkGDPMyyDOyFOH39vErRy2wUWRHWmkQ8dPH4tXfIgYZqrtfi6UMaYPVeNojMYtgkRzBLuOWFOMGyzQ9UwqoiZEIY9HrB+sf/QTiYjBKwgTd65Q0EIbRC265PdxBaPSt+2Ea4cOaD+Dtv6DqOOx8JQgjPV18bWwkt3w4t9GKEdMLupeZ6MaAbP6s7EoMw0jTT3054bWomQAzhA5Vw4WrOBE3RKwA3mQDMq8EfIhDWdxL24LFIMwzhUXN7SiHsXpooaiCEjuaAx5FrDse8CUGS6U0hYQi+WS41Ugz91TF6egwHc80xnUm3Wp1o2hAsyO5iMeA+S8PkHwDBxzg6lHVopgEJhJ7jXM214RiuR+1SlGoR4mNMn55LkygmgATCueaOXzkg18BlOCkfYbgktGiEYwfklZGrTbpCEfo2EMofdlIUybM0XM1Si0IIsObDuaNddqsizVKYaXoo0wRbMw0CRCs2QcwSdkFtAEXegSVxEmeaqvdqzJ3ws6qFj9ai3SMSjl3t0vMWExDEuFp0Yd13RryrBbrW3RUfplK4SpcPJMKJ446rCHSIFqJ7dQmiOudeD5MY7rprAws2jB98cqaBIUT3pFfa3Ksu5vGzinLXlufOWw9SDxuEI9ddoMwynrtD8PXKBRp6/DMNQV+we3r2U3XsjZJtxQjdfY8X3liEXLo3QuF2wDXp9/hbO1FYx7RjUF+JnJ2o17xmKewmkqWfYMMafZ0yrJ/qJr6gEXLrJqJWL1n9VNO7RRnW7+CjTv94fo+ol9kQMvUtWh2SWrmGtTK9/9NnDx4S9LrCsau/b+U0ZkpMmFeKUBEqQv5ShPsk/Ap8/BOSmo08w8rg4zcp7m7Wx6cNE9/Hp20a0j4+fZj4Pn7O/WFpfXz5d8BfmY+fk7AXhj1sGIVw4I1G3qCUhLBxHGE9SDLh0sD3ykgY1DXNDtbDiIQrA98rIaHumyvjiUY4GK4N/BISWktzagvhyNEcb2ngC0KI3LWVqO5aalhAJ5zEwRtAA18QwhD74CDNpDqkIf65PyGVMGXgC0OIie5yp/7df0QlTNnbipARIfLxE9F9fD+qr+WXapZaqRRCzTRWgIns4+OZBhn4ghB+TrUIfD/AhpEIvbhaeK7peOUjzHPXhgz8y9jALx9hvru2tYFfPkIr3H3XVq0uVgZ++Qh1y/d33bVBJQZ+CQkzwwTfAefsYmwzw0Un7NAvXRofn2bQ5/PxddwMF9PHpxn0xkk+Hz/VNy6Tj5816GnDMoMoPv6DTR+f3aew7Fl5jZnyEuaXIlSEipC/FOEeCffq47fJ4krYajZP0NF6aMsnOtk4j99qnuQ4j98+e/yIoMfvNxmZEe7Xx3/84fwmQecfzrgR7tXHb599IPFBfXzPiTDvefx8Pn77MQ3w5vlZdp4yI9zrHp9OeJMX4Z67GBIQGoYO56ulrw8PSUaox+aioQcJIonw55QEI1xu3SmEhm/XQxBBK7R7dMLzp7h+F4MQfQ2ilf0UBeQY2ppmWwY8Sbo8rE4ifPMLrn/PeRNa6B0y4KsxXX+iOwgR0Xuqg7+wPCpLOq2eEOLP+C//GFq+jSJiYf4nhVCfhtEUAZr1KcFdEzOGugWPvkaBAc++mraNPPo6ZZZaVhCfBV4dVCRlmt9x/cY/hjGajw46R1Mg3/dBgMg9byOJYLmqBWKDV25P13dnKcKTBHAZwV6cb8tSLYyeDaanaWq4a0YmXEawF0yTdw2R1uGvuJ4KQAjnKTpjH/UMCmFSD5cR1EPbzp1L+WcaeJkR9v9YCISrTAPGwTUYgOH1Lbk0RShCDME8rZspZ5dGGERgisK6aJpReaoFkh9FUU/fSWgEIQy0NQ1D+j3Nzd9wvREihvAtJNOetZsQ21PodELxqgVRO/aH2/YWchCuhglOKH8XY78+fvsJFfADt1m6Vx+/8v4jjfBR5sMfGHaE9+rjt88+nhP1aKNd2rhmRUg7j/9lPn6lcvaEoA0+sDwKAtyL97Tpx2DKacyITbgPFUdo3hUDsThCLVSEjGQXRqh9EgGxdtvcfaVfquvKtlTISAcFhlAIxIO3BYYQIm4taBIAckcsHhAmVH6INRaAAJH4ZhgGeLXabZsFILi3OW60WpT3ChWnRqvDiG9J+fY2YxW1Y1JSUlJSUlJSUlJSUlJSUlJSUlLKpf8AT+mJsoAhywcAAAAASUVORK5CYII=" class="img-fluid" alt="Project Image">
+                        <h4 class="mt-2">Calculater <br> <span style="color:  white;"> * Mobile *</span></h4>
+                    </div>
+
+                    <!-- BACK SIDE -->
+                    <div class="flip-card-back">
+                        <h5>Tech Used</h5>
+                        <p><strong>Frontend:</strong>XML</p>
+                        <p><strong>Backend:</strong> C#</p>
+                        <p><strong>Tools:</strong> MicroSoft Visual Studio , Git</p>
+                        <a href="p3.html" class="btn btn-primary mt-2">View Project</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+          <!-- project 6-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+
+                    <!-- FRONT SIDE -->
+                    <div class="flip-card-front">
+                        <img src="data:image/jpeg;base64,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" class="img-fluid" alt="Project Image">
+                        <h4 class="mt-2">Freelancer Project in IT Industry<br> <span style="color:  white;"> * WEbsite *</span></h4>
+                    </div>
+
+                    <!-- BACK SIDE -->
+                    <div class="flip-card-back">
+                        <h5>Tech Used</h5>
+                        <p><strong>Frontend:</strong>Asp.net, html, css, bootstrap, </p>
+                        <p><strong>Backend:</strong>C#</p>
+                        <p><strong>Tools:</strong> MicroSoft Visual Studio, Git</p>
+                        <a href="p6.html" class="btn btn-primary mt-2">View Project</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+ 
+</main>
+
+
+
+<!--  card css start  -->
+
+
+    <style>
+    .flip-card {
+    width: 100%;
+    height: 300px;
+    perspective: 1000px;
+    margin-bottom: 20px;
+}
+
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 25px;
+    padding: 15px;
+    color: white;
+}
+
+/* FRONT */
+.flip-card-front {
+    background: linear-gradient(135deg, #121212, #1f1f1f);
+    text-align: center;
+    border: 2px solid #4bf9ac;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  
+}
+.flip-card-front h4{
+    padding-top: 20px;
+    color:  rgb(215, 14, 241);
+    font-weight: bold;
+}
+
+/* BACK */
+.flip-card-back {
+    background: linear-gradient(135deg, #0e1a25, #010127);
+    transform: rotateY(180deg);
+    border: 2px solid #ff00f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.flip-card-back h5 {
+    color: #4bf9ac;
+}
+
+.flip-card-back p {
+    font-size: 14px;
+    margin: 4px 0;
+}
+.flip-card-back strong{
+    color: rgb(221, 12, 204);
+
+}
+
+.flip-card-back .btn {
+    background-color: #4bf9ac;
+    color: black;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+ </style>
+<!--  card css end   -->
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    
+         <!-- Footer -->
+    <footer class="footer">
+  <div class="footer-container">
+    <h3 class="footer-title">Connect With Me</h3>
+
+    <div class="social-icons">
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/gunalakshmanan-m-538458355" target="_blank" class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/GUNA4287" target="_blank" class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
+      </a>
+
+     
+
+      <!-- Mail -->
+      <a href="https://mail.google.com/mail/?view=cm&to=gunalakshmanangk@gmail.com" target="_blank" class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Mail">
+      </a>
+
+    </div>
+
+    <p class="copy">© 2025 Gunalakshmanan M — All Rights Reserved</p>
+  </div>
+
+  <!-- footer page-->
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
