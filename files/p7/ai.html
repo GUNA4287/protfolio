@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hidan AI - Global Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body, html {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+      background: black;
+      color: white;
+    }
+
+    /* Globe Background */
+    #globe-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    /* Chat Container */
+    .chat-container {
+      position: relative;
+      z-index: 10;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      background: transparent; /* ✅ transparent so globe is clear */
+    }
+
+    .chat-box {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding: 15px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.55); /* semi-transparent */
+      backdrop-filter: blur(8px);
+    }
+
+    .message {
+      margin: 8px 0;
+      padding: 10px 14px;
+      border-radius: 12px;
+      max-width: 75%;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .user { background: #00c6ff; align-self: flex-end; }
+    .ai { background: #7c5cff; align-self: flex-start; }
+
+    .input-area {
+      display: flex;
+      margin-top: 12px;
+      gap: 8px;
+    }
+
+    .input-area input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .input-area button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #00c6ff;
+      color: white;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <!-- 🌍 3D Globe Background -->
+  <div id="globe-container"></div>
+
+  <!-- 💬 Chat UI -->
+  <div class="chat-container">
+    <div class="chat-box" id="chat-box"></div>
+    <div class="input-area">
+      <input id="user-input" placeholder="Ask me anything..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
+
+  <script>
+    // 🎨 Setup Scene
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById("globe-container").appendChild(renderer.domElement);
+
+    // 🌍 Earth Textures
+    const loader = new THREE.TextureLoader();
+    const earthTexture = loader.load("https://threejs.org/examples/textures/land_ocean_ice_cloud_2048.jpg");
+    const bumpMap = loader.load("https://threejs.org/examples/textures/earthbump1k.jpg");
+    const specularMap = loader.load("https://threejs.org/examples/textures/earthspec1k.jpg");
+
+    const geometry = new THREE.SphereGeometry(3, 64, 64);
+    const material = new THREE.MeshPhongMaterial({
+      map: earthTexture,
+      bumpMap: bumpMap,
+      bumpScale: 0.05,
+      specularMap: specularMap,
+      specular: new THREE.Color("grey")
+    });
+    const earth = new THREE.Mesh(geometry, material);
+    scene.add(earth);
+
+    // ☁️ Clouds
+    const cloudTexture = loader.load("https://threejs.org/examples/textures/earthcloudmaptrans.jpg");
+    const cloudGeo = new THREE.SphereGeometry(3.05, 64, 64);
+    const cloudMat = new THREE.MeshPhongMaterial({
+      map: cloudTexture,
+      transparent: true
+    });
+    const clouds = new THREE.Mesh(cloudGeo, cloudMat);
+    scene.add(clouds);
+
+    // 💡 Lights
+    const ambientLight = new THREE.AmbientLight(0x333333);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
+    directionalLight.position.set(5, 3, 5);
+    scene.add(directionalLight);
+
+    camera.position.z = 8;
+
+    // 🔄 Animate
+    function animate() {
+      requestAnimationFrame(animate);
+      earth.rotation.y += 0.002;
+      clouds.rotation.y += 0.0025;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // 📐 Resize
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // 💬 Chat Functions
+    const chatBox = document.getElementById("chat-box");
+    const input = document.getElementById("user-input");
+
+    function addMessage(text, sender) {
+      const msg = document.createElement("div");
+      msg.className = "message " + sender;
+      msg.innerText = text;
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage(text, "user");
+      input.value = "";
+
+      // Call backend Flask AI API
+      const res = await fetch("/ask", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({question: text})
+      });
+      const data = await res.json();
+      addMessage(data.answer || "⚠️ Error", "ai");
+    }
+  </script>
+</body>
+</html>

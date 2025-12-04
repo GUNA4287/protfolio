@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Register - Hidan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0; font-family: 'Inter', sans-serif; background: #0f172a;
+      display: flex; justify-content: center; align-items: center; height: 100vh; color: white;
+    }
+    .register-container {
+      background: rgba(17,25,40,0.85); padding: 40px; border-radius: 16px;
+      width: 100%; max-width: 420px; box-shadow: 0 0 30px cyan;
+    }
+    .register-container h2 { text-align: center; color: cyan; }
+    input, button {
+      width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: none;
+    }
+    button { background: cyan; color: black; font-weight: bold; cursor: pointer; }
+    .flash-error { color: #ff4c4c; text-align: center; }
+    .flash-success { color: #00ff99; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>📝 Register</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <p class="flash-{{category}}">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      <input type="text" name="fullname" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="password" name="confirm" placeholder="Confirm Password" required>
+      <input type="tel" name="mobile" placeholder="Mobile Number (10 digits)" required>
+      <button type="submit">Register</button>
+      <button class="btn px-4 py-2 rounded-pill fw-bold shadow-sm" 
+        style="background:#00c6ff; color:#fff;" 
+        onclick="window.location.href='/ai'">
+  🔑 Login Account
+</button>
+      
+    </form>
+  </div>
+</body>
+</html>
