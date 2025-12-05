@@ -1,0 +1,18 @@
+Respected Sir / Madam,
+
+My name is Gunalakshmanan M, and I am applying for the Python Developer position. I have hands-on experience through my internship as a Python Full Stack Developer, where I worked on Django, Flask, REST APIs, SQLite, SQL Server, HTML, CSS, JavaScript, and Bootstrap.
+
+I have also developed AI-integrated applications using the OpenAI API, FAISS, and RAG-based systems, along with interactive visualizations using Three.js and GSAP. My experience in backend development, database handling, and building responsive user interfaces makes me a strong fit for this role.
+
+Please find my portfolio below:
+Portfolio: https://my-websites01.netlify.app
+
+I am highly motivated to contribute to your organization and continue enhancing my skills. Please find my resume attached for your review.
+
+Thank you for considering my application.
+I look forward to your kind response.
+
+Warm regards,
+Gunalakshmanan M
+📞 8056734287
+📧 gunalakshmanan27@gmail.com
